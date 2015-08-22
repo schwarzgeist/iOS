@@ -33,6 +33,7 @@ NSString *runningString = @"";
     // Dispose of any resources that can be recreated.
 }
 
+//Appends the running string to whatever number is being pressed.
 - (IBAction)numberPressed:(id)sender {
     NSString *buttonTitle = [(UIButton *) sender currentTitle];
     
@@ -41,6 +42,7 @@ NSString *runningString = @"";
     _displayLabel.text = runningString;
 }
 
+//Depending on the operation, the overall expression is appended by the operation.
 - (IBAction)operationPressed:(id)sender {
     NSString *buttonTitle = [(UIButton *) sender currentTitle];
     
@@ -59,11 +61,13 @@ NSString *runningString = @"";
     _displayLabel.text = runningString;
 }
 
+//Clears the fields and display
 - (IBAction)clearButtonPressed:(id)sender {
     _displayLabel.text = @"0";
     runningString = @"";
 }
 
+//Evaluates whatever expression is currently in the running string and updates the value of the result
 - (IBAction)equalbuttonPressed:(id)sender {
     NSExpression *expression = [NSExpression expressionWithFormat: runningString];
 

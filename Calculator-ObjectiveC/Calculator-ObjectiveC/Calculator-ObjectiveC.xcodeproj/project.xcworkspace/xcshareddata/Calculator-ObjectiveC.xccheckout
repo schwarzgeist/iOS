@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>737C3D5F-729D-4CFB-A89C-7A76911E3A0D</string>
 	<key>IDESourceControlProjectName</key>
-	<string>project</string>
+	<string>Calculator-ObjectiveC</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>AEE96B89CD82665E135B16DFC285C061E9661F3B</key>
 		<string>https://github.com/schwarzgeist/iOS.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>Calculator-ObjectiveC/Calculator-ObjectiveC/Calculator-ObjectiveC.xcodeproj/project.xcworkspace</string>
+	<string>Calculator-ObjectiveC/Calculator-ObjectiveC/Calculator-ObjectiveC.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>AEE96B89CD82665E135B16DFC285C061E9661F3B</key>
