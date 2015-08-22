@@ -7,6 +7,8 @@
 //
 
 #import "ViewController.h"
+#import <QuartzCore/QuartzCore.h>
+
 
 @interface ViewController (){
     //NSString *displayStack;
@@ -23,6 +25,7 @@ int secondNumber = 0;
 int runningTotal = 0;
 NSString *operation = @"";
 NSString *displayStack = @"";
+NSString *runningString = @"";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -40,7 +43,17 @@ NSString *displayStack = @"";
     
     [self appendNumber:number];
     
-    _display.text = displayStack;
+    runningString = [runningString stringByAppendingString:buttonTitle];
+    _display.text = runningString;
+    
+    
+//    if (([_display.text hasSuffix: @"+"])||
+//        ([_display.text hasSuffix: @"-"])||
+//        ([_display.text hasSuffix: @"/"])||
+//        ([_display.text hasSuffix: @"x"])){
+//        _display.text = runningString;
+//    }
+
     //_display.text = [NSString stringWithFormat:@"%d", number];
 }
 - (IBAction)operationPressed:(id)sender {
@@ -57,6 +70,25 @@ NSString *displayStack = @"";
     
     firstNumber = [displayStack intValue];
     displayStack = @"0";
+    
+    if ([operation isEqualToString:@"x"]){
+        runningString = [runningString stringByAppendingString:@"*"];
+    }
+    else{
+        runningString = [runningString stringByAppendingString:operation];
+    }
+    
+    _display.text = runningString;
+//    NSString * operationAppendage = [NSString stringWithFormat: @" %@", operation];
+//    _display.text = [_display.text stringByAppendingString: operationAppendage];
+//    
+//    NSString * suffix = [NSString stringWithFormat: @" %@", operation];
+//    if ([_display.text hasSuffix: suffix]){
+//        if ([runningString isEqualToString: @""]){
+//            runningString = _display.text;
+//        }
+//        runningString = ([runningString stringByAppendingString: runningString]);
+//    }
     
 }
 - (IBAction)equalsPressed:(id)sender {
@@ -88,6 +120,12 @@ NSString *displayStack = @"";
 //        } else {
 //            runningTotal = runningTotal + result;
 //        }
+        
+        NSExpression *expression = [NSExpression expressionWithFormat: runningString];
+        // result is a NSNumber
+        id result = [expression expressionValueWithObject:nil context:nil];
+        
+        _display.text = [NSString stringWithFormat:@"%@", result];
     }
 }
 
@@ -102,6 +140,7 @@ NSString *displayStack = @"";
     runningTotal = 0;
     displayStack = 0;
     _display.text = @"0";
+    runningString = @"";
 }
 
 @end
