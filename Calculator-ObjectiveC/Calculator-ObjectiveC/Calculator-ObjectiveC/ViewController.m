@@ -14,14 +14,17 @@
 
 @end
 
+
 @implementation ViewController
 
 int firstNumber = 0;
 int secondNumber = 0;
 int runningTotal = 0;
+int runningStringLength = 0;
 NSString *operation = @"";
 NSString *displayStack = @"";
 NSString *runningString = @"";
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -37,7 +40,13 @@ NSString *runningString = @"";
 - (IBAction)numberPressed:(id)sender {
     NSString *buttonTitle = [(UIButton *) sender currentTitle];
     
-    runningString = [runningString stringByAppendingString:buttonTitle];
+    //Ensuring we don't have a leading zero
+    if ([runningString isEqualToString:@"0"]){
+        runningString = buttonTitle;
+    }
+    else{
+        runningString = [runningString stringByAppendingString:buttonTitle];
+    }
     
     _displayLabel.text = runningString;
 }
@@ -69,12 +78,39 @@ NSString *runningString = @"";
 
 //Evaluates whatever expression is currently in the running string and updates the value of the result
 - (IBAction)equalbuttonPressed:(id)sender {
-    NSExpression *expression = [NSExpression expressionWithFormat: runningString];
+    if (![runningString hasSuffix: @" + "]&&
+       ![runningString hasSuffix: @" - "]&&
+       ![runningString hasSuffix: @" * "]&&
+       ![runningString hasSuffix: @" / "]){
+        NSExpression *expression = [NSExpression expressionWithFormat: runningString];
+        
+        id result = [expression expressionValueWithObject:nil context:nil];
+        
+        _displayLabel.text = [NSString stringWithFormat:@"%@", result];
+        runningString = [NSString stringWithFormat:@"%@", result];
+    }
 
-    id result = [expression expressionValueWithObject:nil context:nil];
+}
+
+- (IBAction)deleteButton:(id)sender {
+    runningStringLength = (int)[runningString length];
+    //If the current expression is one digit, just set it to zero
+    if (runningStringLength < 2){
+        runningString = @"0";
+    }
+    //If the current expression ends with an operation, delete the operation
+    else if ([runningString hasSuffix: @" + "]||
+             [runningString hasSuffix: @" - "]||
+             [runningString hasSuffix: @" * "]||
+             [runningString hasSuffix: @" / "]){
+        runningString = [runningString substringToIndex:runningStringLength - 3];
+    }
+    //Else, this is a multiple digit number, so just delete one number
+    else{
+        runningString = [runningString substringToIndex:runningStringLength - 1];
+    }
     
-    _displayLabel.text = [NSString stringWithFormat:@"%@", result];
-    runningString = [NSString stringWithFormat:@"%@", result];
+    _displayLabel.text = runningString;
 }
 
 @end

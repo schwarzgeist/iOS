@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		92417C541B897CF9003EA8DC /* Images-2.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92417C531B897CF9003EA8DC /* Images-2.xcassets */; };
 		9279A2C81B88C7D6004ABFA3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9279A2C71B88C7D6004ABFA3 /* main.m */; };
 		9279A2CB1B88C7D6004ABFA3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9279A2CA1B88C7D6004ABFA3 /* AppDelegate.m */; };
 		9279A2CE1B88C7D6004ABFA3 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9279A2CD1B88C7D6004ABFA3 /* ViewController.m */; };
@@ -27,6 +28,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		92417C531B897CF9003EA8DC /* Images-2.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Images-2.xcassets"; sourceTree = "<group>"; };
 		9279A2C21B88C7D6004ABFA3 /* Calculator-ObjectiveC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Calculator-ObjectiveC.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9279A2C61B88C7D6004ABFA3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9279A2C71B88C7D6004ABFA3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 				9279A2CF1B88C7D6004ABFA3 /* Main.storyboard */,
 				9279A2D21B88C7D6004ABFA3 /* Images.xcassets */,
 				9279A2D41B88C7D6004ABFA3 /* LaunchScreen.xib */,
+				92417C531B897CF9003EA8DC /* Images-2.xcassets */,
 				9279A2C51B88C7D6004ABFA3 /* Supporting Files */,
 			);
 			path = "Calculator-ObjectiveC";
@@ -168,6 +171,7 @@
 				TargetAttributes = {
 					9279A2C11B88C7D6004ABFA3 = {
 						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = 8D5K8W2SLE;
 					};
 					9279A2DA1B88C7D6004ABFA3 = {
 						CreatedOnToolsVersion = 6.4;
@@ -201,6 +205,7 @@
 			files = (
 				9279A2D11B88C7D6004ABFA3 /* Main.storyboard in Resources */,
 				9279A2D61B88C7D6004ABFA3 /* LaunchScreen.xib in Resources */,
+				92417C541B897CF9003EA8DC /* Images-2.xcassets in Resources */,
 				9279A2D31B88C7D6004ABFA3 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -347,9 +352,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Calculator-ObjectiveC/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -357,9 +367,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Calculator-ObjectiveC/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -416,6 +431,7 @@
 				9279A2E71B88C7D6004ABFA3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9279A2E81B88C7D6004ABFA3 /* Build configuration list for PBXNativeTarget "Calculator-ObjectiveCTests" */ = {
 			isa = XCConfigurationList;
@@ -424,6 +440,7 @@
 				9279A2EA1B88C7D6004ABFA3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
