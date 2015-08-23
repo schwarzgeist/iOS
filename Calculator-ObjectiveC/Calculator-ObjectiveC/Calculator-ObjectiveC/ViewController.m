@@ -78,6 +78,11 @@ NSString *runningString = @"";
 
 //Evaluates whatever expression is currently in the running string and updates the value of the result
 - (IBAction)equalbuttonPressed:(id)sender {
+    //Saves application from crashing when user opens the app and just hits enter
+    if ([runningString isEqualToString:@""]){
+        runningString = @"0";
+    }
+    
     if (![runningString hasSuffix: @" + "]&&
        ![runningString hasSuffix: @" - "]&&
        ![runningString hasSuffix: @" * "]&&
